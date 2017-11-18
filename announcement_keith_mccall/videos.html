@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Birdman or (the unexpected virtue of ignorance)</title>
+	<link href="https://fonts.googleapis.com/css?family=Yantramanav" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<style type="text/css">
+
+@keyframes regularnavbar{
+	0%{
+		position: absolute;
+		top: calc(50px);
+		width: 300px;
+		margin-left: -1000px;
+		height: 50px;
+		
+
+	}
+	80%{
+		position: absolute;
+		top: calc(50px);
+		width: 300px;
+		margin-left: -300px;
+		height: 50px;
+		
+	}
+	100%{
+		position: absolute;
+		top: calc(50px);
+		width: 100vw;
+		height: 50px;
+		
+	
+
+	}
+}
+
+@keyframes images{
+	0%{
+		opacity: 0;
+
+	}
+	80%{
+		opacity: .5
+		
+	}
+	100%{
+		opacity: 1;
+		
+	
+
+	}
+}
+#regularnav{
+	position: absolute;
+	top: 50px;
+	width: 100vw;
+	height: 50px;
+	text-align: right;
+	background: rgba(0,0,0,.2);
+	animation: regularnavbar 3s ease-in 0s;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#secondbox{
+	background: url("images/gallerybackground.jpg");
+	background: cover;
+}
+
+#gallery{
+	padding-top: 8%;
+	padding-left: 5%;
+	display: flex;
+	
+
+}
+
+.normalbox{
+	margin: 7px; 
+	display: flex;
+	flex-direction: column;
+	
+}
+.vidboxes{
+	width: 360px;
+	height: 185px;
+	padding: 8px;
+	
+}
+#boxdvd{
+	height: 520px;
+	padding: 15px 0 0 30px;
+
+}
+.fadein{
+	animation: images 3s ease-in 0s;
+}
+#bigvideo{
+	width: 800px;
+	height: 450px;
+	padding-top: 80px;
+}
+#title{
+	top: 38px;
+	
+
+}
+@media (max-width: 1000px){
+	#title{
+		position: absolute;
+		top: 51px;
+		font-size: 30px;
+		margin-left: 2%;
+		color: white;
+		letter-spacing: 10px;
+		z-index: 2;
+
+	}
+	#subtitle{
+		font-size: 7px;
+		letter-spacing: 5px;
+	}
+
+}
+@media (max-width: 1370px) and (min-width: 1000px) {
+	#title{
+		position: absolute;
+		top: 51px;
+		font-size: 40px;
+		margin-left: 4%;
+		color: white;
+		letter-spacing: 10px;
+		z-index: 2;
+
+	}
+	#subtitle{
+		font-size: 10px;
+		letter-spacing: 5px;
+	}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+	<div id="secondbox" class="areas">
+		<a href="index.html"><h1 id="title" class="titlelink">BiRDMAN<span id="subtitle" class="titlelink">OR (THE UNEXPECTED VIRTUE OF iGNORANCE)</span></h1></a>
+		<div id="regularnav">
+			<a href="index.html" class="navbaritems"><div>Home</div></a>
+			<a href="gallery.html" class="navbaritems"><div>Gallery</div></a>
+			<a href="cast.html" class="navbaritems"><div>Cast</div></a>
+			<a href="#openModal" class="navbaritems"><div>Social</div></a>
+			<div class="navbaritems" style="width:20px;opacity: 0"></div>
+		</div>
+			
+		<div id="gallery">
+
+			<div class="normalbox">
+
+				<iframe src="https://www.youtube.com/embed/BooDifFwJm0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="fadein vidboxes"></iframe>
+				<iframe src="https://www.youtube.com/embed/jx7lQE7tD7s?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="fadein vidboxes"></iframe>
+				<iframe src="https://www.youtube.com/embed/HIj1M0EuGWk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="fadein vidboxes"></iframe>
+			</div>
+			<div class="normalbox">
+				<iframe src="https://www.youtube.com/embed/PEf3i6U7Txo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen id="bigvideo"></iframe>
+				
+
+			</div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+		<div id="openModal" class="modalDialog">
+			<div>
+				<a href="#close" title="Close" class="close">x</a>
+				<h2>FOLLOW US</h2>
+				<a href="https://www.facebook.com/BirdmanMovie/"><img src="images/socialmedia/facebook.png" width="100px"></a>
+			</div>
+		</div>
+
+
+
+
+
+
+
+</body>
+</html>	
