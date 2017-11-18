@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>__Instacalc__</title>
+	<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Arvo|Libre+Barcode+39+Text|Orbitron|Pacifico|VT323|Yellowtail|Zilla+Slab+Highlight" rel="stylesheet">
+
+	<style type="text/css">
+@font-face {
+	font-family: 'Billabong';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Billabong'), url('font/Billabong.woff') format('woff');
+}
+*{
+	margin: 0;
+	padding: 0;
+	border:0;
+}
+
+body{
+	font-family: helvetica;
+	background: white;
+	
+	width: 100%;
+	
+}
+#top{
+	margin-top: 0px;
+	background: white;
+	position: fixed;
+}
+
+#statusbar{
+	width: 100%;
+	box-shadow: 0px .2px grey;
+	/*position: fixed;*/
+	background: white;
+
+}
+#topbar{
+	height: 30px;
+	width: 100%;
+	font-size: 25px;
+	letter-spacing: 1px;
+	display: flex;
+	/*position: fixed;*/
+	background: white;
+
+
+}
+
+
+#instacalc{
+	flex:3;
+	font-family: 'Billabong';
+	text-align: center;
+	cursor: pointer;
+}
+.topadmin{
+	flex:1;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+  	text-shadow:-.6px -.6px black, .6px -.6px black, -.6px .6px black, .6px .6px black;
+  	cursor: pointer;
+  	padding: 1px 4px 0px 4px;
+	
+}
+#clear{
+	text-align: right;
+}
+#avg{
+	text-align: left;
+}
+#input{
+	border:0;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	box-shadow: 0px .2px grey, 0px -.3px grey;
+	text-align: center;
+	letter-spacing: 5px;
+	background: rgb(230,230,230);
+
+	
+}
+#scrollbox{
+	padding-top: 40%;
+	display: flex;
+	flex-direction: column;
+}
+.picbox{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: 400px;
+
+}
+
+.username{
+	flex: 1;
+	/*background: blue;*/
+	text-align: left;
+
+	
+
+}
+.profile{
+	border-radius: 25px;
+	width: 25px;
+	height: 25px;
+	padding: 0px 10px 10px 5px;
+	float: left;
+	
+
+}
+.name{
+
+}
+.numbers{
+	/*height: 330px;*/
+	width: 100%;
+	flex: 9;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	font-size: 250px;
+	box-shadow: 0px -.3px black;
+	
+}
+.comment{
+	flex: 2;
+	/*background: grey;*/
+}
+
+#one{
+	
+	font-family: impact;
+	background: rgb(48,200,6);
+}
+#one:active{
+	background: url(images/one/one.jpg);
+	background-size: cover;
+	font-size: 0;
+}
+#two{
+	background: rgb(177,2,88);
+	font-family: 'Libre Barcode 39 Text', cursive;
+
+
+}
+#two:active{
+	background: url(images/two/two.jpg);
+	background-size: cover;
+
+
+}
+#three{
+	background: rgb(150,177,77);
+	font-family: 'Orbitron', sans-serif;
+
+
+}
+#three:active{
+	background: url(images/three/tri.jpg);
+	background-size: cover;
+	
+}
+#four{
+	background: rgb(77,23,200);
+	font-family: 'Arvo', serif;
+
+}
+#four:active{
+	background: url(images/four/four.png);
+	background-size: cover;
+}
+#five{
+	background: rgb(22,99,175);
+	font-family: futura;
+
+}
+#five:active{
+	background: url(images/five/nickel.jpg);
+	background-size: cover;
+}
+#six{
+	background: rgb(0,29,55);
+	font-family: 'Zilla Slab Highlight', cursive;
+
+}
+#six:active{
+	background: url(images/six/six.png);
+	background-size: cover;
+}
+#seven{
+	background: rgb(30,200,170);
+	font-family: 'Yellowtail', cursive;
+
+}
+#seven:active{
+	background: url(images/seven/seven.jpg);
+	background-size: cover;
+
+}
+#eight{
+	background: rgb(199,188,60);
+	font-family: 'Alfa Slab One', cursive;
+
+}
+#eight:active{
+	background: url(images/eight/eight.png);
+	background-size: cover;
+}
+#nine{
+	background: rgb(240,200,88);
+	font-family: courier;
+}
+#nine:active{
+	background: url(images/nine/nine.jpg);
+	background-size: cover;
+}
+#zero{
+	background: rgb(22,22,22);
+	font-family: 'VT323', monospace;
+
+}
+#zero:active{
+	background: url(images/zero/zero.jpeg);
+	background-size: cover;
+}
+.numbers:active{
+	font-size: 0;
+}
+#footer{
+	left: 0;
+	bottom: 0;
+	display: flex;
+	box-shadow: 0px -.2px grey;
+	padding: 5px 0px;
+	position: fixed;
+	width: 100%;
+	background: white;
+}
+.admin{
+	flex: 2;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+  	text-shadow:-.7px -.7px black, .7px -.7px black, -.7px .7px black, .7px .7px black;
+  	cursor: pointer;
+
+}
+#equals{
+	border: .5px solid black;
+	border-radius: 5px;
+	flex: 1;
+	
+}
+#minus{
+	padding-right: 15px;
+}
+#multiply{
+	padding-left: 15px;
+}
+#squ{
+	font-size: 15px;
+	color: white;
+  	text-shadow:-.7px -.7px black, .7px -.7px black, -.7px .7px black, .7px .7px black;
+
+}
+
+
+	</style>
+</head>
+
+
+
+<body>
+	
+	<form name="calc">
+
+		<div id="top">
+		<img id="statusbar" src="images/iphonestatusbar.png">
+		
+		
+			<div id="topbar">
+
+				<div type="button" class="topadmin" id="avg" value="null" onclick="average()">AVG</div>
+				<span type="button" id="instacalc" value="null" onclick="square()">Instacalc<span id="squ">^2</span></span>
+				<div type="button" class="topadmin" id="clear" value="null" onclick="calc.input.value=''"">AC</div>
+
+
+
+
+			</div>
+		
+
+		
+		<input type="text" name="input" id="input" style="font-size: 30;">
+		</div>
+
+		<div id="scrollbox">	
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/one/profilepic.jpg"><p class="name">one</p></div>
+				<div type="button" class="numbers" id="one" value="1" onclick="calc.input.value+='1'"">1</div>
+				<div class="comment"></div>
+			</div>
+
+			
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/two/profilepic.png"><p class="name">two</p></div>
+				<div type="button" class="numbers" id="two" value="2" onclick="calc.input.value+='2'"">2</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/three/profilepic.png"><p class="name">three</p></div>
+				<div type="button" class="numbers" id="three" value="3" onclick="calc.input.value+='3'"">3</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/four/profilepic.png"><p class="name">four</p></div>
+				<div type="button" class="numbers" id="four" value="4" onclick="calc.input.value+='4'"">4</div>
+				<div class="comment"></div>
+			</div>
+
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/five/profilepic.jpg"><p class="name">five</p></div>
+				<div type="button" class="numbers" id="five" value="5" onclick="calc.input.value+='5'"">5</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/six/profilepic.png"><p class="name">six</p></div>
+				<div type="button" class="numbers" id="six" value="6" onclick="calc.input.value+='6'"">6</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/seven/profilepic.png"><p class="name">seven</p></div>
+				<div type="button" class="numbers" id="seven" value="7" onclick="calc.input.value+='7'"">7</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/eight/profilepic.png"><p class="name">eight</p></div>	
+				<div type="button" class="numbers" id="eight" value="8" onclick="calc.input.value+='8'"">8</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/nine/profilepic.jpg"><p class="name">nine</p></div>	
+				<div type="button" class="numbers" id="nine" value="9" onclick="calc.input.value+='9'"">9</div>
+				<div class="comment"></div>
+			</div>
+
+			<div class="picbox">
+				<div class="username">
+					<img class="profile" src="images/zero/profilepic.png"><p class="name">zero</p></div>	
+				<div type="button" class="numbers" id="zero" value="0" onclick="calc.input.value+='0'"">0</div>
+				<div class="comment"></div>
+			</div>
+
+
+
+		</div>	
+
+
+
+
+		<div id="footer">
+			<div type="button" class="admin" id="plus" value="+" onclick="calc.input.value+='+'"">+</div>
+			<div type="button" class="admin" id="minus" value="-" onclick="calc.input.value+='-'"">-</div>
+
+			<div type="button" class="admin" id="equals" value="=" onclick="calc.input.value=eval(calc.input.value)">=</div>
+
+			<div type="button" class="admin" id="multiply" value="*" onclick="calc.input.value+='*'"">x</div>
+			<div type="button" class="admin" id="divide" value="/" onclick="calc.input.value+='/'"">/</div>
+		</div>
+		
+
+
+
+
+		
+
+
+
+
+
+	
+
+	</form>
+
+<script type="text/javascript">
+let x;
+let y;
+let z;
+let final;
+let first;
+let squared;
+let sum;
+
+function average(){
+	var x = (calc.input.value)
+	var y = x.split("+");
+	var z = 0;
+	for (let i=0; i<y.length;i++){
+		z += Number(y[i])
+	}
+
+	var final = z/y.length;
+	calc.input.value= final;
+}
+function square(){
+	squared=calc.input.value*calc.input.value;
+	calc.input.value=squared;
+}
+
+
+	
+
+
+
+</script>
+
+
+
+</body>
+</html>
