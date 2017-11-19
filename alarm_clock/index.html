@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet">
+
+
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	border:0;
+}
+
+body{
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background: #222;
+	font-family: 'Electrolize', sans-serif;
+
+}
+#clock{
+	display: flex;
+	margin: 30px 100px;
+	text-align: center;
+
+
+}
+.numbers{
+	width: 100%;
+	font-size: 300px;
+	color: rgb(140, 244, 66);
+
+}
+#hours{
+	flex: 1;
+}
+#minutes{
+	flex: 1;
+}
+#seconds{
+	flex: 1;
+}
+#timer{
+	position: fixed;
+	top: 10%;
+	left: 30%;
+}
+.btn{
+	background: red;
+	padding: 5px 30px;
+
+}
+#buttoncontainer{
+	display: flex;
+	justify-content: space-around;
+	margin: 0px 400px;
+	margin-top: 200px;
+}
+.inputsss{
+	margin: 0px 50px;
+	height: 50px;
+	width: 80px;
+	font-size: 50px;
+}
+
+</style>
+</head>
+<body>
+
+	<div id="buttoncontainer">
+		<button class="btn" onclick="setInterval(setalarm, 500);">SET</button>
+		<button class="btn" onclick="location.reload();">STOP</button>
+	</div>
+
+
+
+
+	<div id="clock">
+		<p class="numbers" id="hours"></p>
+		<p class="numbers" id="minutes"></p>
+		<p class="numbers" id="seconds"></p>
+	</div>	
+
+
+
+	<form name="timer" id="timer">
+		<input type="text" class="inputsss" id="inputhours" name="inputhours" maxlength="2" minlength="2">
+		<input type="text" class="inputsss" id="inputminutes" name="inputminutes" maxlength="2" minlength="2">
+		<input type="text" class="inputsss" id="inputseconds" name="inputseconds" maxlength="2" minlength="2">
+		
+				<!-- ^ set interval function (a built-in function) runs the function"setalarm" every 10000 miliseconds.  my setalarm function is defined below-->
+	</form>
+
+	<audio id="audio" src="spaceship_alarm.ogg" autostart="false" ></audio>
+ 
+
+<script type="text/javascript">
+
+
+
+	
+function checkTime(i) {
+  if (i < 10) {					/*this is to force single digits to appear as double digits. 02 = 2 for example*/
+    i = "0" + i;
+  }
+  return i;
+}
+
+function hourTime(j) {
+  if (j > 12) {					/*this is convert from military time to normal time*/
+    j = j - 12;				
+  }
+  return j;
+}
+
+function theTime() {
+  var today = new Date();			 /*built in date thing*/
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+ 
+  h = hourTime(h);
+  h = checkTime(h);
+  m = checkTime(m);
+  s = checkTime(s);
+  
+  document.getElementById('hours').innerHTML = h
+  document.getElementById('minutes').innerHTML = m
+  document.getElementById('seconds').innerHTML = s
+  
+    setTimeout(function() {
+    theTime()
+  }, 500);
+
+}
+
+theTime();
+
+function fireAlarm() {
+    var w = document.getElementById("audio");
+    w.play();
+
+
+
+    }
+
+function setalarm(x,y,z){
+	
+  	var h = document.getElementById('hours').innerHTML;
+ 	var m = document.getElementById('minutes').innerHTML;
+  	var s = document.getElementById('seconds').innerHTML;
+  	var x = timer.inputhours.value;
+  	var y = timer.inputminutes.value;
+  	var z = timer.inputseconds.value;
+
+
+	if (x===h && y===m && z===s) {
+		fireAlarm();
+	}
+	
+
+}
+
+
+
+</script>
+</body>
+</html>
