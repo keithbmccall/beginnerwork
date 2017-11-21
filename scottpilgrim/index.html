@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+
+body{
+	background: url(background.jpg);
+	background-size: cover;
+	overflow: hidden;
+}
+*{
+	margin:0;
+	padding: 0;
+	border:0;
+}
+#board{
+	position: relative;
+	margin-top: 30%;
+
+}
+.scott{
+	height: 200px;
+	width: 170px;
+ 	position: absolute;
+ 	z-index: 5;
+ 	
+
+}
+#standing{
+	background: url('standing.gif');
+	background-size: cover;
+}
+#running{
+	background: url('running.gif');
+	background-size: cover;
+}
+#punch{
+	background: url('punch.gif');
+	background-size: cover;
+	width: 250px;
+	height: 190px;
+}
+.gideon{
+	transform: scaleX(-1);
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	left: 105%;
+	
+}
+#gideonrunning{
+	background: url('gideonrunning.gif');
+	background-size: cover;
+
+}
+#gideonpain{
+	background: url('gideonpunch.gif');
+	background-size: cover; 
+	padding-left: 40px;
+	margin-top: 50px;
+	width: 140px;
+	height: 140px;
+	transform: scaleX(1);
+}
+#final{
+	background: black;
+	height: 2700px;
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	top: 100%;
+	border-top-left-radius: 800px;
+	border-top-right-radius: 800px;
+}
+#button{
+	z-index: 10000;
+	margin-top: 50%;
+	position: fixed;
+	margin-left: 300px;
+}
+#ko{
+	background: url('ko.gif');
+	background-size: cover;
+	width: 250px;
+	height: 190px;
+	padding-bottom: 30px;
+	margin-top: -20px;
+}
+#gameover{
+	font-size: 350px;
+	position: absolute;
+	margin-top: -100px;
+	margin-left: 500px;
+	color: brown;
+	text-shadow: 2px 2px yellow;
+	opacity: 0;
+	z-index: 4;
+}
+
+</style>
+</head>
+<body>
+	<!-- <button id='button' onclick="scott()"></button> -->
+	<h1 id="gameover">KO</h1>
+	<div id="final"></div>
+	<div id="board">
+
+		<div class="scott" id="standing" onclick="scott()"></div>
+
+		<div class="gideon" id="gideonrunning"></div>
+
+
+	</div>
+
+<audio id="end" src="end.mp3" autostart="false"></audio>
+<audio id="winningmusic" src="metal.mp3" autostart="false"></audio>
+<audio id="knockout" src="ko.mp3" autostart="false"></audio>
+
+
+
+
+
+
+
+<script type="text/javascript">
+sound();
+
+	var x = document.getElementById('standing');
+
+function ko(){
+	x.id='ko';
+
+	document.getElementById('end').src=' ';
+	document.getElementById('winningmusic').play();
+
+	
+		document.getElementById('gameover').style.opacity=1;
+		document.getElementById('knockout').play();
+
+	
+
+
+}
+
+
+
+function boom(){
+var k = document.getElementById('final');
+
+var s = setInterval(backgroundmove,10);
+var b = 100;
+
+
+	function backgroundmove(){
+		if (b == -120) {
+			ko();
+			
+		}
+		else{
+	
+		b--;
+		document.getElementById('final').style.top= (b)+'%';
+
+		}
+	}
+	
+}
+
+
+function sound(){
+		
+		document.getElementById('end').play();
+		
+	}
+
+var x = document.getElementById('standing');
+var s = setInterval(move,100);
+var z = document.getElementById('gideonrunning');
+
+
+
+
+function pain(){
+	var z = document.getElementById('gideonrunning');
+	z.id='gideonpain';
+
+
+}
+
+function punch(){
+	
+	x.id='punch';
+
+	pain();
+	
+	boom();
+}
+
+
+
+
+function badguy(){
+var z = document.getElementById('gideonrunning');
+
+var g = setInterval(gid,100);
+var a = 115;
+
+
+	function gid(){
+		if (a == 60) {
+			clearInterval(g);
+			pain();
+					}
+		else{
+	
+		a--;
+		z.style.left= (a/1.2)+'%';
+
+		}
+	}
+
+}
+
+
+
+
+
+
+function scott(){
+// var x = document.getElementById('standing');
+x.id='running';
+var s = setInterval(move,100);
+var a = 0;
+
+
+
+	function move(){
+		if (a == 55) {
+			punch();
+		}
+		else{
+	
+		a++;
+		x.style.left= (a/1.2)+'%';
+
+		}
+	}
+	badguy();
+	
+}
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
